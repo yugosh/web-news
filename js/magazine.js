@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Fungsi untuk memuat data pertama kali dari database
 function loadInitialData() {
     // Mengirim permintaan AJAX untuk mendapatkan data pertama kali
-    fetch('http://137.184.248.109/get_initial_data')
+    fetch('http://137.184.248.109:4000/get_initial_data')
         .then(response => response.json())
         .then(data => {
             // Memperbarui tampilan kartu dengan data yang diterima
@@ -42,7 +42,7 @@ function loadMoreData() {
     const currentCardCount = document.querySelectorAll('.wrap__masonary-card').length;
 
     // Ubah URL endpoint sesuai dengan server Anda
-    const url = `http://137.184.248.109/get_more_data?skip=${currentCardCount}&limit=15`;
+    const url = `http://137.184.248.109:4000/get_more_data?skip=${currentCardCount}&limit=15`;
 
     fetch(url)
         .then(response => {
@@ -196,7 +196,7 @@ async function handleSearch(event) {
     if (searchInput.trim() !== "") {
         try {
             // Mengirim permintaan pencarian ke backend
-            const response = await fetch(`http://137.184.248.109/search?query=${encodeURIComponent(searchInput)}`);
+            const response = await fetch(`http://137.184.248.109:4000/search?query=${encodeURIComponent(searchInput)}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
