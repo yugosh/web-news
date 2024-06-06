@@ -25,6 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("form").addEventListener("submit", handleSearch);
 });
 
+// Fungsi untuk melakukan refresh
+function refreshPage() {
+    location.reload(); // Ini akan merefresh halaman
+}
+
+setInterval(refreshPage, 60000);
+
 // Fungsi untuk memuat data pertama kali dari database
 function loadInitialData() {
     // Mengirim permintaan AJAX untuk mendapatkan data pertama kali
